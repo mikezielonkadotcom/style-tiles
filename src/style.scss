@@ -1,0 +1,380 @@
+.wp-block-mzv-style-tile,
+.mzv-style-tile {
+  --mzv-font-heading: Inter;
+  --mzv-font-body: Inter;
+  --mzv-heading-weight: 700;
+  --mzv-body-weight: 400;
+  --mzv-text-color: #1a1a2e;
+  --mzv-surface-color: #faf8f5;
+  --mzv-border-color: rgba(26, 26, 46, 0.12);
+  --mzv-shadow: 0 12px 40px rgba(38, 18, 30, 0.08);
+  --mzv-accent: #8b4a6b;
+
+  box-sizing: border-box;
+  display: grid;
+  gap: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0) 35%),
+    radial-gradient(circle at 92% 10%, rgba(139, 74, 107, 0.1), rgba(139, 74, 107, 0) 40%),
+    var(--mzv-surface-color);
+  color: var(--mzv-text-color);
+  border: 1px solid var(--mzv-border-color);
+  box-shadow: var(--mzv-shadow);
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &.is-layout-horizontal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .mzv-style-tile__header,
+    .mzv-style-tile__mapping {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &.is-layout-vertical {
+    max-width: 800px;
+    grid-template-columns: 1fr;
+  }
+
+  &.is-theme-dark {
+    --mzv-surface-color: #0a0a0a;
+    --mzv-text-color: #f2ede6;
+    --mzv-border-color: rgba(255, 184, 108, 0.25);
+    --mzv-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+    --mzv-accent: #ffb86c;
+
+    background:
+      radial-gradient(circle at 18% -10%, rgba(255, 184, 108, 0.22), rgba(255, 184, 108, 0) 40%),
+      radial-gradient(circle at 92% 12%, rgba(110, 58, 85, 0.45), rgba(110, 58, 85, 0) 38%),
+      var(--mzv-surface-color);
+
+    .mzv-style-tile__section {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 184, 108, 0.25);
+    }
+
+    .mzv-style-tile__pill,
+    .mzv-style-tile__mapping-title {
+      background: rgba(255, 184, 108, 0.16);
+      border-color: rgba(255, 184, 108, 0.35);
+      color: #ffd9ad;
+    }
+
+    .mzv-style-tile__spacing-track {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .mzv-style-tile__swatch,
+    .mzv-style-tile__texture-item {
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+  }
+}
+
+.mzv-style-tile__section {
+  border: 1px solid rgba(26, 26, 46, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.64);
+  backdrop-filter: blur(6px);
+  padding: 1rem;
+}
+
+.mzv-style-tile__header {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.mzv-style-tile__brand {
+  margin: 0;
+  font-family: var(--mzv-font-heading), serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  line-height: 1.1;
+  font-weight: var(--mzv-heading-weight);
+}
+
+.mzv-style-tile__tagline {
+  margin: 0;
+  font-family: var(--mzv-font-body), sans-serif;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.mzv-style-tile__adjectives {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mzv-style-tile__pill {
+  border: 1px solid rgba(139, 74, 107, 0.25);
+  background: rgba(139, 74, 107, 0.08);
+  color: #6e3a55;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mzv-style-tile__section-title {
+  margin: 0 0 0.8rem;
+  font-family: var(--mzv-font-heading), serif;
+  font-size: 1rem;
+  font-weight: var(--mzv-heading-weight);
+  letter-spacing: 0.02em;
+}
+
+.mzv-style-tile__swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.mzv-style-tile__swatch {
+  border: 1px solid rgba(26, 26, 46, 0.14);
+  border-radius: 12px;
+  padding: 0.55rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.mzv-style-tile__swatch-chip {
+  min-height: 72px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mzv-style-tile__swatch-name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-family: var(--mzv-font-body), sans-serif;
+}
+
+.mzv-style-tile__swatch-meta,
+.mzv-style-tile__contrast-item {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  opacity: 0.86;
+  word-break: break-word;
+}
+
+.mzv-style-tile__type-samples {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.mzv-style-tile__type-row p {
+  margin: 0;
+}
+
+.mzv-style-tile__type-meta {
+  font-size: 0.72rem;
+  font-family: var(--mzv-font-body), sans-serif;
+  opacity: 0.7;
+  margin-bottom: 0.22rem;
+}
+
+.mzv-style-tile__sample-h1 {
+  font-family: var(--mzv-font-heading), serif;
+  font-weight: var(--mzv-heading-weight);
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.mzv-style-tile__sample-h2 {
+  font-family: var(--mzv-font-heading), serif;
+  font-weight: var(--mzv-heading-weight);
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+}
+
+.mzv-style-tile__sample-body {
+  font-family: var(--mzv-font-body), sans-serif;
+  font-weight: var(--mzv-body-weight);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.mzv-style-tile__sample-caption {
+  font-family: var(--mzv-font-body), sans-serif;
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+.mzv-style-tile__button-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mzv-style-tile__button-stack {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.mzv-style-tile__button {
+  font-family: var(--mzv-font-body), sans-serif;
+  font-weight: 600;
+  font-size: 0.86rem;
+  border: 1px solid;
+  padding: 0.58rem 0.8rem;
+  transition: transform 160ms ease, opacity 160ms ease, filter 160ms ease;
+}
+
+.mzv-style-tile__button--secondary {
+  background: transparent;
+}
+
+.mzv-style-tile__button.is-hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.mzv-style-tile__button:disabled {
+  opacity: 0.55;
+}
+
+.mzv-style-tile__textures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+}
+
+.mzv-style-tile__texture-item {
+  border: 1px solid rgba(26, 26, 46, 0.15);
+  border-radius: 10px;
+  padding: 0.52rem;
+}
+
+.mzv-style-tile__texture-swatch {
+  min-height: 80px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mzv-style-tile__texture-name,
+.mzv-style-tile__texture-type {
+  margin: 0.35rem 0 0;
+  font-family: var(--mzv-font-body), sans-serif;
+  font-size: 0.74rem;
+}
+
+.mzv-style-tile__texture-name {
+  font-weight: 600;
+}
+
+.mzv-style-tile__spacing-list {
+  display: grid;
+  gap: 0.58rem;
+}
+
+.mzv-style-tile__spacing-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mzv-style-tile__spacing-label {
+  font-family: var(--mzv-font-body), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.mzv-style-tile__spacing-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(26, 26, 46, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mzv-style-tile__spacing-bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff8a4d, var(--mzv-accent));
+}
+
+.mzv-style-tile__framework-detected {
+  margin: 0 0 0.8rem;
+  font-family: var(--mzv-font-body), sans-serif;
+  font-size: 0.84rem;
+}
+
+.mzv-style-tile__mapping-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.48rem;
+}
+
+.mzv-style-tile__mapping-item {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.mzv-style-tile__mapping-title {
+  font-family: var(--mzv-font-body), sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 74, 107, 0.2);
+  background: rgba(139, 74, 107, 0.08);
+  padding: 0.2rem 0.6rem;
+}
+
+.mzv-style-tile__mapping-details {
+  font-size: 0.74rem;
+  font-family: var(--mzv-font-body), sans-serif;
+  opacity: 0.88;
+}
+
+@media (max-width: 920px) {
+  .wp-block-mzv-style-tile,
+  .mzv-style-tile {
+    padding: 1rem;
+
+    &.is-layout-horizontal {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .mzv-style-tile__button-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .wp-block-mzv-style-tile,
+  .mzv-style-tile {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+    break-inside: avoid;
+  }
+
+  .mzv-style-tile__section {
+    border-color: #ddd;
+    background: #fff;
+    backdrop-filter: none;
+  }
+
+  .mzv-style-tile__button {
+    color: #000 !important;
+    border-color: #333 !important;
+    background: #fff !important;
+  }
+}

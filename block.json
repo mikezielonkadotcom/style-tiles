@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mzv/style-tile",
+  "version": "1.0.0",
+  "title": "Style Tile",
+  "category": "design",
+  "icon": "art",
+  "description": "A visual direction tile showing colors, typography, buttons, and textures.",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "brandName": { "type": "string", "default": "Brand Name" },
+    "tagline": { "type": "string", "default": "" },
+    "adjectives": { "type": "array", "default": ["Modern", "Clean", "Bold"] },
+    "layout": { "type": "string", "default": "vertical", "enum": ["horizontal", "vertical"] },
+    "theme": { "type": "string", "default": "light", "enum": ["light", "dark"] },
+    "colors": {
+      "type": "array",
+      "default": [
+        { "name": "Primary", "hex": "#2B4C7E", "role": "primary" },
+        { "name": "Accent", "hex": "#FF6B35", "role": "accent" },
+        { "name": "Background", "hex": "#F7F7F7", "role": "background" },
+        { "name": "Text", "hex": "#1A1A2E", "role": "text" }
+      ]
+    },
+    "headingFont": { "type": "string", "default": "Inter" },
+    "headingWeight": { "type": "number", "default": 700 },
+    "bodyFont": { "type": "string", "default": "Inter" },
+    "bodyWeight": { "type": "number", "default": 400 },
+    "buttonRadius": { "type": "number", "default": 8 },
+    "primaryButtonColor": { "type": "string", "default": "#2B4C7E" },
+    "secondaryButtonColor": { "type": "string", "default": "#666666" },
+    "buttonTextColor": { "type": "string", "default": "#FFFFFF" },
+    "textures": {
+      "type": "array",
+      "default": [
+        { "name": "Flat", "type": "solid", "value": "#F0F0F0" },
+        { "name": "Gradient", "type": "gradient", "value": "linear-gradient(135deg, #2B4C7E, #FF6B35)" }
+      ]
+    },
+    "spacingScale": {
+      "type": "array",
+      "default": [4, 8, 12, 16, 24, 32, 48, 64]
+    },
+    "tokensJson": { "type": "string", "default": "" }
+  },
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css"
+}
