@@ -7,6 +7,7 @@
   "category": "design",
   "icon": "art",
   "description": "A visual direction tile showing colors, typography, buttons, and textures.",
+  "keywords": ["style", "tile", "brand", "design", "tokens", "colors", "typography"],
   "supports": {
     "html": false,
     "align": ["wide", "full"]
