@@ -37,8 +37,10 @@ export default function save({ attributes }) {
       '--mzv-font-body': bodyFont,
       '--mzv-heading-weight': headingWeight,
       '--mzv-body-weight': bodyWeight,
-      '--mzv-text-color': textColor,
-      '--mzv-surface-color': backgroundColor,
+      ...(theme !== 'dark' ? {
+        '--mzv-text-color': textColor,
+        '--mzv-surface-color': backgroundColor,
+      } : {}),
     },
   });
 
